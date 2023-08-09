@@ -1,0 +1,101 @@
+﻿@model PrubeznaDobaModel
+
+<div class="container my-5">
+    <div class="row">
+        <!-- Input section -->
+        <div class="col-md-6">
+            <h2 class="mb-4">Vstup</h2>
+            <div class="card" style="height: 600px; width: 100%;">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="prubeznaDobaVstup" class="table w-100">
+                            <thead>
+                                <tr>
+                                    <th>Pracoviště</th>
+                                    <th>Čas Operační (Tk)</th>
+                                    <th>Čas Nastavovací (Tpz)</th>
+                                    <th>Čas Mezioperační (Tm)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <!-- Řadky se přidají dynamicky -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <button id="pridatPracovisteBtn" class="btn btn-primary">Přidat pracoviště</button>
+            <button id="vypocitatBtn" class="btn btn-primary">Vypočítat</button>
+        </div>
+
+        <!-- Output section -->
+        <div class="col-md-6">
+            <h2 class="mb-4">Výstup</h2>
+            <div class="card" style="height: 600px; width: 100%;">
+                <div class="card-body">
+                    <table id="prubeznaDobaVystup" class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>System</th>
+                                <th>Průběžná doba (minuty)</th>
+                                <th>Počet Pracovišť</th>
+                                <th>Počet zaměstnanců</th>
+                                <th>DavkaQ</th>
+                                <th>DavkaQD</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Řadky se přidají dynamicky -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Pole pro uložení dat tabulky vstupu
+        var inputTableData = [];
+
+        // Funkce pro přidání nového řádku do tabulky vstupu
+        function addRowToInputTable(data) {
+            var row = '<tr>';
+            row += '<td>' + data[0] + '</td>';
+            row += '<td contenteditable="true">' + data[1] + '</td>';
+            row += '<td contenteditable="true">' + data[2] + '</td>';
+            row += '<td contenteditable="true">' + data[3] + '</td>';
+            row += '</tr>';
+            $('#prubeznaDobaVstup tbody').append(row);
+        }
+
+        // Navázání události na kliknutí tlačítka pro přidání nového řádku
+        $('#pridatPracovisteBtn').on('click', function () {
+            var newRowData = [
+                'Pracoviště 1',
+                '',
+                '',
+                ''
+            ];
+
+            // Ověření, zda už Pracoviště existuje v tabulce vstupu
+            var pracoviste = newRowData[0];
+            var index = 1;
+            while (inputTableData.includes(pracoviste)) {
+                pracoviste = 'Pracoviště ' + index;
+                newRowData[0] = pracoviste;
+                index++;
+            }
+
+            // Přidání nového řádku do tabulky vstupu
+            addRowToInputTable(newRowData);
+
+            // Přidání Pracoviště do pole
+            inputTableData.push(pracoviste);
+        });
+    });
+</script>

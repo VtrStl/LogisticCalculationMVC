@@ -1,0 +1,38 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+/* Style for the navigation items */
+.navbar-nav .nav-item {
+    border-left: 1px solid rgba(255, 255, 255, 0.5); /* Static right border */
+}
+
+    /* Style for the navigation items when hovered */
+    .navbar-nav .nav-item:hover {
+        border-left-color: #ffffff; /* Change the border color on hover */
+    }
+
+/* Style for the bottom border of the navigation bar */
+.navbar {
+    border-bottom: 2px solid transparent; /* Transparent bottom border by default */
+    transition: border-color 0.3s; /* Smooth transition for border color changes */
+}
+
+    /* Style for the bottom border of the navigation bar when focused */
+    .navbar:focus-within {
+        border-bottom-color: #ffffff; /* Change the border color on focus */
+    }

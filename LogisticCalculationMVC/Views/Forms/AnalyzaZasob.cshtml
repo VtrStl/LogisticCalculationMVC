@@ -1,0 +1,73 @@
+﻿@model AnalyzaZasobModel
+@{
+
+}
+<div class="container my-5">
+    <div class="row">
+        <!-- Input section -->
+        <div class="col-md-6">
+            <h2 class="mb-4">Vstup</h2>
+            <form asp-action="AnalyzaZasobVypocet" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Spotřeba za rok</label>
+                    <input asp-for="Spotreba" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Objednávací Dávka</label>
+                    <input asp-for="ObjednavaciDavka" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Pojistná zásoba[ZP]</label>
+                    <input asp-for="PojistnaZasoba" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Týden pokrytí poptávky(pokud není úveden ZP, nevyplňujte)</label>
+                    <input asp-for=PokrytiPoptavky type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Dodací lhůta</label>
+                    <input asp-for=DodaciLhuta type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Kolik má rok týdnů/dnů</label>
+                    <input asp-for=DnyNaTyden type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Zvolte systém</label>
+                    <select asp-for="Systemy">
+                        <option value="BQ">B,Q</option>
+                        <option value="sQ">s,Q</option>
+                    </select>
+                    <label>Interval Kontroly (s,Q)</label>
+                    <input asp-for="IntervalKontroly" type="text">                    
+                </div>
+                <button type="submit" class="btn btn-primary">Vypočítat</button>
+            </form>
+        </div>
+
+        <!-- Output section -->
+        <div class="col-md-6 d-flex align-items-center justify-content-end">
+            <div class="card" style="height: 400px; width: 100%;">
+                <div class="card-body d-flex flex-column justify-content-center">
+                    <h2 class="card-title text-center">Výstup</h2>
+                    <div class="mb-3">
+                        <label class="form-label"><b>System:</b></label>
+                        <div id="systemy">@ViewBag.System</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><b>Objednavaci Uroven(Ks):</b></label>
+                        <div id="objednavaci-uroven">@ViewBag.ObjednavaciUroven</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><b>Pruměrná Zásoba(týdny):</b></label>
+                        <div id="prumerna-zasoba">@ViewBag.PrumernaZasoba</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><b>Pocet Objednavek za rok:</b></label>
+                        <div id="pocet-objednavek">@ViewBag.PocetObjednavek</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
