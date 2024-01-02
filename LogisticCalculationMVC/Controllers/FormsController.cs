@@ -1,4 +1,5 @@
 ﻿using LogisticCalculationMVC.Models;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Reflection;
@@ -17,15 +18,11 @@ namespace LogisticCalculationMVC.Controllers
         [HttpPost]
         public IActionResult QoptVypocet(QoptModel model)
         {
-            double qoptVysledek = model.Qopt();
-            double pocetDavek = model.PocetDavek();
-            double periodicitaZadavani = model.PeriodicitaZadavani();
-            double celkoveNaklady = model.CelkoveNaklady();
+            ViewBag.Qopt = model.Qopt();
+            ViewBag.PocetDavek = model.PocetDavek();
+            ViewBag.PeriodicitaZadavani = model.PeriodicitaZadavani();
+            ViewBag.CelkoveNaklady = model.CelkoveNaklady();
 
-            ViewBag.Qopt = qoptVysledek;
-            ViewBag.PocetDavek = pocetDavek;
-            ViewBag.PeriodicitaZadavani = periodicitaZadavani;
-            ViewBag.CelkoveNaklady = celkoveNaklady;
             return View("Qopt", model);
         }
 
@@ -39,16 +36,10 @@ namespace LogisticCalculationMVC.Controllers
         [HttpPost]
         public IActionResult AnalyzaZasobVypocet(AnalyzaZasobModel model)
         {
-            string? systemy = model.Systemy;
-            string systemText = model.ObjUrovenText(systemy);
-            double objUrovenVysledek = model.ObjUrovenVysledek(systemy);
-            double prumernaZasoba = model.PrumernaZasoba();
-            double objednavkyRok = model.PocetObjednavekZaRok();
-
-            ViewBag.System = systemText;
-            ViewBag.ObjednavaciUroven = objUrovenVysledek;
-            ViewBag.PrumernaZasoba = prumernaZasoba;
-            ViewBag.PocetObjednavek = objednavkyRok;
+            ViewBag.System = model.ObjUrovenText(model.Systemy!);
+            ViewBag.ObjednavaciUroven = model.ObjUrovenVysledek(model.Systemy!);
+            ViewBag.PrumernaZasoba = model.PrumernaZasoba();
+            ViewBag.PocetObjednavek = model.PocetObjednavekZaRok();
 
             return View("AnalyzaZasob", model);
         }
@@ -58,6 +49,25 @@ namespace LogisticCalculationMVC.Controllers
         public IActionResult PrubeznaDoba()
         {
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult PrubeznaDobaVypocet([FromBody] PrubeznaDobaInputModel inputData)
+        {
+            PrubeznaDobaModel prubeznaDobaModel = new(inputData);
+            int prubeznaDobaVysledek = prubeznaDobaModel.PrubeznaDobaVysledek();
+
+            PrubeznaDobaOutputModel outputModel = new()
+            {
+                SystemyPrubeznaDoba = prubeznaDobaModel.PrubeznaDobaSystemyText(),
+                PrubeznaDobaVysledek = prubeznaDobaVysledek,
+                PocetPracovist = prubeznaDobaModel.PocetPracovist,
+                PocetPracovniku = prubeznaDobaModel.PocetPracovniku,
+                DavkaQ = prubeznaDobaModel.DavkaQ,
+                DavkaQd = prubeznaDobaModel.DavkaQd
+            };
+
+            return Json(new { result = "success", data = outputModel });
         }
     }
 }

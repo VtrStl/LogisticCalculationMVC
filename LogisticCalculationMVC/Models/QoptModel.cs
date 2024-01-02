@@ -22,6 +22,7 @@
         {
             return Math.Ceiling(360 * Obdobi / PocetDavek());
         }
+        
         public double CelkoveNaklady()
         {
             double PrislusneNaklady = Qopt() / 2 * Nj * Ns * Obdobi;

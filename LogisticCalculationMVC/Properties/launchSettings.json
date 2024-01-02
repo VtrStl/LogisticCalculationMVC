@@ -1,21 +1,14 @@
-﻿{
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:3413",
-      "sslPort": 44390
-    }
-  },
+{
   "profiles": {
     "LogisticCalculationMVC": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7063;http://localhost:5039",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7063;http://localhost:5039",
+      "hotReloadEnabled": true
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -23,6 +16,14 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:3413",
+      "sslPort": 44390
     }
   }
 }

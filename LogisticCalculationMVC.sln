@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticCalculationMVC", "LogisticCalculationMVC\LogisticCalculationMVC.csproj", "{D6F97E0E-0EF4-4BB0-A037-83E4D37CF8FB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstMVCApp", "..\FirstMVCApp\FirstMVCApp\FirstMVCApp.csproj", "{11A216CF-AAEE-4C10-879F-71B5BD20E55D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticCalculationWPF", "..\LogisticCalculationWPF\LogisticCalculationWPF\LogisticCalculationWPF.csproj", "{1334A3E1-4BBA-44FD-97D1-BCA562093BD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D6F97E0E-0EF4-4BB0-A037-83E4D37CF8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6F97E0E-0EF4-4BB0-A037-83E4D37CF8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6F97E0E-0EF4-4BB0-A037-83E4D37CF8FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11A216CF-AAEE-4C10-879F-71B5BD20E55D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11A216CF-AAEE-4C10-879F-71B5BD20E55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11A216CF-AAEE-4C10-879F-71B5BD20E55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11A216CF-AAEE-4C10-879F-71B5BD20E55D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1334A3E1-4BBA-44FD-97D1-BCA562093BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1334A3E1-4BBA-44FD-97D1-BCA562093BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1334A3E1-4BBA-44FD-97D1-BCA562093BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1334A3E1-4BBA-44FD-97D1-BCA562093BD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
