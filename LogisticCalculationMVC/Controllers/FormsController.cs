@@ -69,5 +69,21 @@ namespace LogisticCalculationMVC.Controllers
 
             return Json(new { result = "success", data = outputModel });
         }
+
+        // Zamestnanci Tab
+        [HttpGet]
+        public IActionResult Zamestnanci()
+        {
+            EmployeeRepository _employeeRepository = new();
+            var employees = _employeeRepository.GetEmployees();
+            var workplaces = _employeeRepository.GetWorkplaces();
+            var viewModel = new EmployeeWorkplaceModel
+            {
+                Employees = employees,
+                Workplaces = workplaces
+            };
+
+            return View(viewModel);
+        }
     }
 }

@@ -12,7 +12,6 @@
         public int SystemZpracovani { get; set; }
         public int DavkaQ { get; set; }
         public int DavkaQd { get; set; }
-        public List<PrubeznaDobaModel>? PrubeznaDobaOutput { get; set; }
 
         public PrubeznaDobaModel(PrubeznaDobaInputModel inputModel)
         {

@@ -5,7 +5,7 @@
 
     // Funkce pro přidání nového řádku do tabulky vstupů
     function addRowToInputTable(data) {
-        var row = '<tr>';
+        let row = '<tr>';
         row += '<td>' + data[0] + '</td>';
         row += '<td contenteditable="true">' + data[1] + '</td>';
         row += '<td contenteditable="true">' + data[2] + '</td>';
@@ -50,7 +50,7 @@
 
     // Logika pro sběr dat z tabulky prubeznaDobaVstup
     function collectData() {
-        var tableData = [];
+        let tableData = [];
 
         $("#prubeznaDobaVstup tbody tr").each(function () {
             let rowData = [];
