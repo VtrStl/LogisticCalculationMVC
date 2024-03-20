@@ -1,8 +1,5 @@
 ﻿using LogisticCalculationMVC.Models;
-using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Reflection;
 
 namespace LogisticCalculationMVC.Controllers
 {
@@ -69,21 +66,27 @@ namespace LogisticCalculationMVC.Controllers
 
             return Json(new { result = "success", data = outputModel });
         }
-
-        // Zamestnanci Tab
+        
+        
+        // Employees Tab
         [HttpGet]
-        public IActionResult Zamestnanci()
+        public IActionResult Employees()
+        {
+            return View();
+        }
+
+        public JsonResult EmployeesData()
         {
             EmployeeRepository _employeeRepository = new();
             var employees = _employeeRepository.GetEmployees();
-            var workplaces = _employeeRepository.GetWorkplaces();
-            var viewModel = new EmployeeWorkplaceModel
-            {
-                Employees = employees,
-                Workplaces = workplaces
-            };
+            return Json(employees);
+        }
 
-            return View(viewModel);
+        public JsonResult EmployeesWorkplaces()
+        {
+            EmployeeRepository _employeeRepository = new();
+            var workplaces = _employeeRepository.GetWorkplaces();
+            return Json(workplaces);
         }
     }
 }

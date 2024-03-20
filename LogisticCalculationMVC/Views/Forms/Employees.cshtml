@@ -1,7 +1,6 @@
-﻿@model EmployeeWorkplaceModel
-@{
-    ViewData["Title"] = "Zamestnanci";
-}
+﻿<head>
+<script src="~/js/EmployeesJQuery.js"></script>
+</head>
 
 <div class="container my-5">
     <div class="row">
@@ -17,22 +16,10 @@
                         <th>birth</th>
                         <th>job</th>
                         <th>workplace</th>
-                        <th>workplace nav</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var employee in Model.Employees)
-                    {
-                        <tr>
-                            <td>@employee.Id</td>
-                            <td>@employee.Name</td>
-                            <td>@employee.Surname</td>
-                            <td>@employee.Birth</td>
-                            <td>@employee.Job</td>
-                            <td>@employee.WorkplaceName</td>
-                            <td>@employee.WorkplaceNavigation</td>
-                        </tr>
-                    }
+                    <!-- Rows are added dynamically -->
                 </tbody>
             </table>
         </div>
@@ -53,19 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var employee in Model.Workplaces)
-                    {
-                        <tr>
-                            <td>@employee.Id</td>
-                            <td>@employee.WorkplaceName</td>
-                            <td>@employee.City</td>
-                            <td>@employee.Street</td>
-                            <td>@employee.Psc</td>
-                            <td>@employee.Email</td>
-                            <td>@employee.Phone</td>
-                            <td>@employee.EmployeeCount</td>
-                        </tr>
-                    }
+                    <!-- Rows are added dynamically -->
                 </tbody>
             </table>
         </div>

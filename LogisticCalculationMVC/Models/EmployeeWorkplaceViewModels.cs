@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace LogisticCalculationMVC.Models
+﻿namespace LogisticCalculationMVC.Models
 {
     public class EmployeeViewModel
     {
@@ -25,11 +23,5 @@ namespace LogisticCalculationMVC.Models
         public int EmployeeCount { get; set; }
 
         public virtual ICollection<Employee>? Employees { get; set; }
-    }
-
-    public class EmployeeWorkplaceModel
-    {
-        public List<EmployeeViewModel>? Employees { get; set; }
-        public List<WorkplaceViewModel>? Workplaces { get; set; }
     }
 }

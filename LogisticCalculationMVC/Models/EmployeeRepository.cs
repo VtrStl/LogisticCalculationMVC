@@ -18,17 +18,17 @@ namespace LogisticCalculationMVC.Models
         public List<EmployeeViewModel> GetEmployees()
         {
             return dbContext.Employees
-        .Include(e => e.WorkplaceNavigation)
-        .Select(e => new EmployeeViewModel
-        {
-            Id = e.Id,
-            Name = e.Name,
-            Surname = e.Surname,
-            Birth = e.Birth,
-            Job = e.Job,
-            WorkplaceName = e.WorkplaceNavigation.WorkplaceName
-        })
-        .ToList();
+            .Include(e => e.WorkplaceNavigation)
+            .Select(e => new EmployeeViewModel
+            {
+                Id = e.Id,
+                Name = e.Name,
+                Surname = e.Surname,
+                Birth = e.Birth,
+                Job = e.Job,
+                WorkplaceName = e.WorkplaceNavigation.WorkplaceName
+            })
+            .ToList();
         }
 
         public List<WorkplaceViewModel> GetWorkplaces()
@@ -45,7 +45,8 @@ namespace LogisticCalculationMVC.Models
                 Email = e.Email,
                 Phone = e.Phone,
                 EmployeeCount = e.Employees.Count
-            }).ToList();
+            })
+            .ToList();
         }
     }
 }
